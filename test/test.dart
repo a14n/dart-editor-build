@@ -10,6 +10,7 @@ main() {
       expect(opts.clean, isTrue);
       expect(opts.full, isFalse);
       expect(opts.machine, isFalse);
+      expect(opts.deploy, isFalse);
     });
     test('full', () {
       final opts = BuildOptions.parse(['--full']);
@@ -18,6 +19,7 @@ main() {
       expect(opts.clean, isFalse);
       expect(opts.full, isTrue);
       expect(opts.machine, isFalse);
+      expect(opts.deploy, isFalse);
     });
     test('machine', () {
       final opts = BuildOptions.parse(['--machine']);
@@ -26,6 +28,7 @@ main() {
       expect(opts.clean, isFalse);
       expect(opts.full, isFalse);
       expect(opts.machine, isTrue);
+      expect(opts.deploy, isFalse);
     });
     test('changed', () {
       final opts = BuildOptions.parse(['--changed', 'a', '--changed', 'b']);
@@ -36,6 +39,7 @@ main() {
       expect(opts.clean, isFalse);
       expect(opts.full, isFalse);
       expect(opts.machine, isFalse);
+      expect(opts.deploy, isFalse);
     });
     test('removed', () {
       final opts = BuildOptions.parse(['--removed', 'a', '--removed', 'b']);
@@ -46,6 +50,16 @@ main() {
       expect(opts.clean, isFalse);
       expect(opts.full, isFalse);
       expect(opts.machine, isFalse);
+      expect(opts.deploy, isFalse);
+    });
+    test('deploy', () {
+      final opts = BuildOptions.parse(['--deploy']);
+      expect(opts.changed.length, equals(0));
+      expect(opts.removed.length, equals(0));
+      expect(opts.clean, isFalse);
+      expect(opts.full, isFalse);
+      expect(opts.machine, isFalse);
+      expect(opts.deploy, isTrue);
     });
   });
   group('result', () {

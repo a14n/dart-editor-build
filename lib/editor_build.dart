@@ -23,7 +23,8 @@ ArgParser get buildArgParser => new ArgParser()
     ..addOption('removed', allowMultiple: true)
     ..addFlag('clean', negatable: false)
     ..addFlag('full', negatable: false)
-    ..addFlag('machine', negatable: false);
+    ..addFlag('machine', negatable: false)
+    ..addFlag('deploy', negatable: false);
 
 class BuildOptions {
   static BuildOptions parse(List<String> args) => new BuildOptions(buildArgParser.parse(args));
@@ -37,6 +38,7 @@ class BuildOptions {
   bool get clean => argResults['clean'];
   bool get full => argResults['full'];
   bool get machine => argResults['machine'];
+  bool get deploy => argResults['deploy'];
 }
 
 class BuildResult {
