@@ -16,6 +16,7 @@ opts.removed; // The list of files that was removed and might affect the build.
 opts.clean; // bool
 opts.full; // bool
 opts.machine; // bool
+opts.deploy; // bool
 ```
 
 ### Provide results to Dart Editor ###
