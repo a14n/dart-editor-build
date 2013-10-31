@@ -14,7 +14,7 @@
 
 library editor_build;
 
-import 'dart:json' as json;
+import 'dart:convert' show JSON;
 
 import 'package:args/args.dart';
 
@@ -69,5 +69,5 @@ class BuildResult {
       "param": param
     });
   }
-  String toString() => json.stringify(_messages);
+  String toString() => JSON.encode(_messages);
 }
